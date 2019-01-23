@@ -1,13 +1,25 @@
 defmodule Bob do
+  def empty?(input) do
+    String.strip(input) == ""
+  end
+
+  def shouting?(input) do
+    String.upcase(input) != String.downcase(input) && String.upcase(input) == input
+  end
+
+  def question?(input) do
+    String.ends_with?(input, "?")
+  end
+
   def hey(input) do
     cond do
-      String.strip(input) == "" ->
+      empty?(input) ->
         "Fine. Be that way!"
-      String.ends_with?(input, "?") && input =~ ~r/[A-Z]{2,}/ ->
+      question?(input) && shouting?(input) ->
         "Calm down, I know what I'm doing!"
-      String.ends_with?(input, "?") ->
+      question?(input) ->
         "Sure."
-      input =~ ~r/[A-Z]{2,}/ || input == "УХОДИ" ->
+      shouting?(input) ->
         "Whoa, chill out!"
       true ->
         "Whatever."
