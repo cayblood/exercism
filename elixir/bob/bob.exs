@@ -1,13 +1,13 @@
 defmodule Bob do
-  def empty?(input) do
-    String.strip(input) == ""
+  defp empty?(input) do
+    String.trim(input) == ""
   end
 
-  def shouting?(input) do
+  defp shouting?(input) do
     String.upcase(input) != String.downcase(input) && String.upcase(input) == input
   end
 
-  def question?(input) do
+  defp question?(input) do
     String.ends_with?(input, "?")
   end
 
