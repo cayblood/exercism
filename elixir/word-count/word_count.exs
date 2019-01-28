@@ -9,7 +9,7 @@ defmodule Words do
     sentence = String.downcase(sentence)
     words = String.split(String.replace(sentence, ~r/[,_\:\^&*%#$!@]/, " "))
     Enum.reduce(words, %{}, fn (w, acc) ->
-      Map.put(acc, w, Map.get(acc, w, 0) + 1)
+      Map.update(acc, w, 1, &(&1 + 1))
     end)
   end
 end
