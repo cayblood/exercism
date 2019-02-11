@@ -8,12 +8,11 @@
 #define ALPHABET_SIZE 26
 #define ASCII_OFFSET 97
 
-void make_lowercase(char *dest, char *src)
+void make_lowercase(char *dest, const char *src)
 {
-    int length = strlen(src);
     int i = 0;
     while (src[i]) {
-        dest[i] = tolower(src[i]);
+        dest[i] = (char)tolower(src[i]);
         i++;
     }
 }
@@ -24,7 +23,8 @@ bool is_isogram(const char phrase[])
     if (phrase)
     {
         int letters[ALPHABET_SIZE];
-        int length = strlen(phrase);
+        size_t length;
+        length = strlen(phrase);
         memset(letters, 0, sizeof(int) * ALPHABET_SIZE);
         char *lowercase = (char *)calloc(length, sizeof(char));
         int index = 0;
