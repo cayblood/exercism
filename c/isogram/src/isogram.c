@@ -23,7 +23,7 @@ bool is_isogram(const char phrase[])
     if (phrase)
     {
         int letters[ALPHABET_SIZE];
-        size_t length;
+        size_t i, length;
         length = strlen(phrase);
         memset(letters, 0, sizeof(int) * ALPHABET_SIZE);
         char *lowercase = (char *)calloc(length, sizeof(char));
@@ -32,7 +32,7 @@ bool is_isogram(const char phrase[])
         returnval = true;
         make_lowercase(lowercase, phrase);
 
-        for (int i = 0; i < length; ++i)
+        for (i = 0; i < length; ++i)
         {
             index = lowercase[i] - ASCII_OFFSET;
             if (index >= 0 && index < ALPHABET_SIZE)
