@@ -9,12 +9,13 @@ defmodule RNATranscription do
   """
   @spec to_rna([char]) :: [char]
   def to_rna(dna) do
-    str = to_string(dna)
-    str |> String.replace("A", "U")
-      |> String.replace("T", "A")
-      |> String.replace("G", "Z")
-      |> String.replace("C", "G")
-      |> String.replace("Z", "C")
-      |> to_charlist
+    Enum.map(dna, fn ch ->
+      case ch do
+        ?A -> ?U
+        ?T -> ?A
+        ?G -> ?C
+        ?C -> ?G
+      end
+    end)
   end
 end
