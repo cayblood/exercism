@@ -5,6 +5,7 @@
 
 #define ALPHABET_SIZE 26
 #define ASCII_OFFSET 97
+#define MAX_STRING_LENGTH 256
 
 bool is_isogram(const char phrase[])
 {
@@ -12,15 +13,14 @@ bool is_isogram(const char phrase[])
     if (phrase)
     {
         int letters[ALPHABET_SIZE];
-        size_t length;
+        int length = (int)strnlen(phrase, MAX_STRING_LENGTH);
         char letter;
-        int index = 0;
+        int index = 0, i = 0;
 
-        length = strlen(phrase);
         memset(letters, 0, sizeof(int) * ALPHABET_SIZE);
-
         returnval = true;
-        for (size_t i = 0; i < length; ++i)
+        
+        for (i = 0; i < length; ++i)
         {
             letter = (char)tolower(phrase[i]);
             index = letter - ASCII_OFFSET;
