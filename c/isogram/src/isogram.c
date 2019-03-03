@@ -30,6 +30,7 @@ bool is_isogram(const char phrase[])
                 if (letters[index] > 1)
                 {
                     returnval = false;
+                    break;
                 }
             }
         }
