@@ -13,10 +13,11 @@ bool is_isogram(const char phrase[])
     {
         int letters[ALPHABET_SIZE];
         size_t length;
-        length = strlen(phrase);
-        memset(letters, 0, sizeof(int) * ALPHABET_SIZE);
         char letter;
         int index = 0;
+
+        length = strlen(phrase);
+        memset(letters, 0, sizeof(int) * ALPHABET_SIZE);
 
         returnval = true;
         for (size_t i = 0; i < length; ++i)
