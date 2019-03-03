@@ -19,8 +19,8 @@ bool is_isogram(const char phrase[])
 
         memset(letters, 0, sizeof(int) * ALPHABET_SIZE);
         returnval = true;
-        
-        for (i = 0; i < length; ++i)
+
+        for (; i < length; i++)
         {
             letter = (char)tolower(phrase[i]);
             index = letter - ASCII_OFFSET;
