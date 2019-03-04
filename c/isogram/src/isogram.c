@@ -1,5 +1,4 @@
 #include "isogram.h"
-#include <memory.h>
 #include <string.h>
 #include <ctype.h>
 
@@ -12,12 +11,11 @@ bool is_isogram(const char phrase[])
     bool returnval = false;
     if (phrase)
     {
-        int letters[ALPHABET_SIZE];
+        int letters[ALPHABET_SIZE] = { 0 };
         int length = (int)strnlen(phrase, MAX_STRING_LENGTH);
         char letter;
         int index = 0, i = 0;
 
-        memset(letters, 0, sizeof(int) * ALPHABET_SIZE);
         returnval = true;
 
         for (; i < length; i++)
