@@ -5,6 +5,7 @@
 #ifndef GRAINS_GRAINS_H
 #define GRAINS_GRAINS_H
 
+#include <math.h>
 #include <stdint.h>
 
 uint64_t square(int n);

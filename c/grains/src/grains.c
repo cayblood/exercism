@@ -2,8 +2,7 @@
 // Created by Carl Youngblood on 2019-03-06.
 //
 
-#include <math.h>
-#include <stdint.h>
+#include "grains.h"
 
 #define BOARD_SQUARE_COUNT 64
 
