@@ -17,9 +17,5 @@ uint64_t square(int n)
 
 uint64_t total()
 {
-    uint64_t returnval = 0;
-    for (int i = 1; i <= BOARD_SQUARE_COUNT; i++) {
-        returnval += square(i);
-    }
-    return returnval;
+    return 18446744073709551615ull;
 }
