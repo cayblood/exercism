@@ -15,5 +15,6 @@ void verse(char *response, int beer_count)
 
 void sing(char *response, int start, int end)
 {
+    // test
     strcpy(response, "");
 }
