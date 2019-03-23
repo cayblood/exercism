@@ -2,12 +2,7 @@
 // Created by Youngblood, Carl on 2019-03-20.
 //
 
-#include <memory.h>
-#include <stdio.h>
-#include <ctype.h>
-
-#define MAX_NUMBER 10
-#define MAX_STRING 1024
+#include "beer_song.h"
 
 void capitalize(char *buffer)
 {
