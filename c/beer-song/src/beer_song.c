@@ -4,6 +4,8 @@
 
 #include "beer_song.h"
 
+#define MAX_NUMBER 10
+
 void capitalize(char *buffer)
 {
     buffer[0] = (char)toupper(buffer[0]);
