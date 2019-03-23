@@ -13,7 +13,7 @@ void capitalize(char *buffer)
 
 void format_bottles(char *buffer, int count)
 {
-    const char phrase1[] = "%s bottle%s of beer";
+    const char tpl[] = "%s bottle%s of beer";
     char number[MAX_NUMBER] = "";
     char plural[2] = "";
 
@@ -30,23 +30,23 @@ void format_bottles(char *buffer, int count)
     } else {
         strcpy(plural, "s");
     }
-    sprintf(buffer, phrase1, number, plural);
+    sprintf(buffer, tpl, number, plural);
 }
 
 void verse(char *response, int beer_count)
 {
     const char preposition[] = "on the wall";
-    const char phrase2[] = "Take %s down and pass it around";
-    const char phrase3[] = "Go to the store and buy some more";
+    const char tpl1[] = "Take %s down and pass it around";
+    const char tpl2[] = "Go to the store and buy some more";
     char bottles[MAX_STRING] = "";
     char bottles_after[MAX_STRING] = "";
     char capitalized_bottles[MAX_STRING] = "";
     char middle[MAX_STRING] = "";
 
     if (beer_count == 0) {
-        strcpy(middle, phrase3);
+        strcpy(middle, tpl2);
     } else {
-        sprintf(middle, phrase2, beer_count == 1 ? "it" : "one");
+        sprintf(middle, tpl1, beer_count == 1 ? "it" : "one");
     }
     format_bottles(bottles, beer_count);
     format_bottles(bottles_after, beer_count - 1);
