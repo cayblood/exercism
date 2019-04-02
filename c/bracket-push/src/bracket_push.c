@@ -6,7 +6,6 @@
 
 #include <string.h>
 #include <stdlib.h>
-#include <stdbool.h>
 #include <stdio.h>
 
 #define MAX_STACK_SIZE 50
