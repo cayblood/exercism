@@ -8,17 +8,16 @@
 #include <memory.h>
 #include <stdio.h>
 
-char *translate(const char *phrase)
+char *translate_word(const char *wrd, char *dest)
 {
-    char *returnval = NULL;
-    returnval = malloc(sizeof(char) * MAX_STRING);
-    char ch = (char)tolower(phrase[0]);
+    char ch = (char)tolower(wrd[0]);
     switch (ch) {
         case 'a':
         case 'e':
         case 'i':
         case 'o':
-        case 'u': sprintf(returnval, "%say", phrase);
+        case 'u': sprintf(dest, "%say", wrd);
+        default:;
     }
     switch (ch) {
         case 'b':
@@ -41,34 +40,51 @@ char *translate(const char *phrase)
         case 'w':
         case 'x':
         case 'y':
-        case 'z': sprintf(returnval, "%s%cay", phrase + sizeof(char), ch);
+        case 'z': sprintf(dest, "%s%cay", wrd + sizeof(char), ch);
+        default:;
     }
-    if (strncmp("yt", phrase, 2) == 0) {
-        sprintf(returnval, "%say", phrase);
+    if (strncmp("yt", wrd, 2) == 0) {
+        sprintf(dest, "%say", wrd);
     }
-    if (strncmp("xr", phrase, 2) == 0) {
-        sprintf(returnval, "%say", phrase);
+    if (strncmp("xr", wrd, 2) == 0) {
+        sprintf(dest, "%say", wrd);
     }
-    if (strncmp("th", phrase, 2) == 0) {
-        sprintf(returnval, "%sthay", phrase + (sizeof(char) * 2));
+    if (strncmp("th", wrd, 2) == 0) {
+        sprintf(dest, "%sthay", wrd + (sizeof(char) * 2));
     }
-    if (strncmp("qu", phrase, 2) == 0) {
-        sprintf(returnval, "%squay", phrase + (sizeof(char) * 2));
+    if (strncmp("qu", wrd, 2) == 0) {
+        sprintf(dest, "%squay", wrd + (sizeof(char) * 2));
     }
-    if (strncmp("ch", phrase, 2) == 0) {
-        sprintf(returnval, "%schay", phrase + (sizeof(char) * 2));
+    if (strncmp("ch", wrd, 2) == 0) {
+        sprintf(dest, "%schay", wrd + (sizeof(char) * 2));
     }
-    if (strncmp("rh", phrase, 2) == 0) {
-        sprintf(returnval, "%srhay", phrase + (sizeof(char) * 2));
+    if (strncmp("rh", wrd, 2) == 0) {
+        sprintf(dest, "%srhay", wrd + (sizeof(char) * 2));
     }
-    if (strncmp("thr", phrase, 3) == 0) {
-        sprintf(returnval, "%sthray", phrase + (sizeof(char) * 3));
+    if (strncmp("thr", wrd, 3) == 0) {
+        sprintf(dest, "%sthray", wrd + (sizeof(char) * 3));
     }
-    if (strncmp("squ", phrase, 3) == 0) {
-        sprintf(returnval, "%ssquay", phrase + (sizeof(char) * 3));
+    if (strncmp("squ", wrd, 3) == 0) {
+        sprintf(dest, "%ssquay", wrd + (sizeof(char) * 3));
     }
-    if (strncmp("sch", phrase, 3) == 0) {
-        sprintf(returnval, "%sschay", phrase + (sizeof(char) * 3));
+    if (strncmp("sch", wrd, 3) == 0) {
+        sprintf(dest, "%sschay", wrd + (sizeof(char) * 3));
+    }
+    return dest;
+}
+
+char *translate(const char *phrase)
+{
+    char *returnval = calloc(strlen(phrase) + 1, sizeof(char));
+    char translation[MAX_WORD] = { 0 };
+    char tokenizable_string[MAX_STRING] = { 0 };
+    strcpy(tokenizable_string, phrase);
+    for (char *wrd = strtok(tokenizable_string, " "); wrd; wrd = strtok(NULL, " ")) {
+        if (strlen(returnval) > 0) {
+            strcat(returnval, " ");
+        }
+        translate_word(wrd, translation);
+        strcat(returnval, translation);
     }
     return returnval;
 }

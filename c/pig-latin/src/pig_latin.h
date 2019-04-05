@@ -5,7 +5,8 @@
 #ifndef PIGLATIN_PIG_LATIN_H
 #define PIGLATIN_PIG_LATIN_H
 
-#define MAX_STRING 256
+#define MAX_STRING 1024
+#define MAX_WORD 256
 
 char *translate(const char *phrase);
 
