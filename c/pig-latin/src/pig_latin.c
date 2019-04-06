@@ -8,68 +8,44 @@
 #include <memory.h>
 #include <stdio.h>
 
+#define VOWEL_COUNT 5
+#define CONSONANT_COUNT 21
+#define PREFIX_COUNT 7
+
 char *translate_word(const char *wrd, char *dest)
 {
+    const char vowels[] = { 'a', 'e', 'i', 'o', 'u' };
+    const char consonants[] = { 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's',
+                                't', 'v', 'w', 'x', 'y', 'z' };
+    const char *prefixes[] = {"th", "qu", "ch", "rh", "thr", "squ", "sch" };
     char ch = (char)tolower(wrd[0]);
-    switch (ch) {
-        case 'a':
-        case 'e':
-        case 'i':
-        case 'o':
-        case 'u': sprintf(dest, "%say", wrd);
-        default:;
+
+    for (int i = 0; i < VOWEL_COUNT; i++) {
+        if (ch == vowels[i]) {
+            sprintf(dest, "%say", wrd);
+        }
     }
-    switch (ch) {
-        case 'b':
-        case 'c':
-        case 'd':
-        case 'f':
-        case 'g':
-        case 'h':
-        case 'j':
-        case 'k':
-        case 'l':
-        case 'm':
-        case 'n':
-        case 'p':
-        case 'q':
-        case 'r':
-        case 's':
-        case 't':
-        case 'v':
-        case 'w':
-        case 'x':
-        case 'y':
-        case 'z': sprintf(dest, "%s%cay", wrd + sizeof(char), ch);
-        default:;
+
+    for (int i = 0; i < CONSONANT_COUNT; i++) {
+        if (ch == consonants[i]) {
+            sprintf(dest, "%s%cay", wrd + sizeof(char), ch);
+        }
     }
+
+    for (int i = 0; i < PREFIX_COUNT; i++) {
+        if (strncmp(prefixes[i], wrd, strlen(prefixes[i])) == 0) {
+            sprintf(dest, "%s%say", wrd + (sizeof(char) * strlen(prefixes[i])), prefixes[i]);
+        }
+    }
+
     if (strncmp("yt", wrd, 2) == 0) {
         sprintf(dest, "%say", wrd);
     }
+
     if (strncmp("xr", wrd, 2) == 0) {
         sprintf(dest, "%say", wrd);
     }
-    if (strncmp("th", wrd, 2) == 0) {
-        sprintf(dest, "%sthay", wrd + (sizeof(char) * 2));
-    }
-    if (strncmp("qu", wrd, 2) == 0) {
-        sprintf(dest, "%squay", wrd + (sizeof(char) * 2));
-    }
-    if (strncmp("ch", wrd, 2) == 0) {
-        sprintf(dest, "%schay", wrd + (sizeof(char) * 2));
-    }
-    if (strncmp("rh", wrd, 2) == 0) {
-        sprintf(dest, "%srhay", wrd + (sizeof(char) * 2));
-    }
-    if (strncmp("thr", wrd, 3) == 0) {
-        sprintf(dest, "%sthray", wrd + (sizeof(char) * 3));
-    }
-    if (strncmp("squ", wrd, 3) == 0) {
-        sprintf(dest, "%ssquay", wrd + (sizeof(char) * 3));
-    }
-    if (strncmp("sch", wrd, 3) == 0) {
-        sprintf(dest, "%sschay", wrd + (sizeof(char) * 3));
-    }
+
     return dest;
 }
 
