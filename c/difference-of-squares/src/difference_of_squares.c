@@ -6,12 +6,20 @@
 
 unsigned int sum_of_squares(unsigned int n)
 {
-    return n - n + 0;
+    unsigned int sum = 0;
+    for (int i = 1; i <= n; i++) {
+        sum += (i * i);
+    }
+    return sum;
 }
 
 unsigned int square_of_sum(unsigned int n)
 {
-    return n - n + 225;
+    unsigned int sum = 0;
+    for (int i = 1; i <= n; i++) {
+        sum += i;
+    }
+    return sum * sum;
 }
 
 unsigned int difference_of_squares(unsigned int n)
