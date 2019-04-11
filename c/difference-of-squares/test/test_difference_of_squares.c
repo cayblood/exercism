@@ -41,25 +41,21 @@ void test_sum_of_squares_up_to_100(void)
 
 void test_difference_of_squares_up_to_0(void)
 {
-   TEST_IGNORE();
    TEST_ASSERT_EQUAL(0, difference_of_squares(0));
 }
 
 void test_difference_of_squares_up_to_5(void)
 {
-   TEST_IGNORE();
    TEST_ASSERT_EQUAL(170, difference_of_squares(5));
 }
 
 void test_difference_of_squares_up_to_10(void)
 {
-   TEST_IGNORE();
    TEST_ASSERT_EQUAL(2640, difference_of_squares(10));
 }
 
 void test_difference_of_squares_up_to_100(void)
 {
-   TEST_IGNORE();
    TEST_ASSERT_EQUAL(25164150, difference_of_squares(100));
 }
 
