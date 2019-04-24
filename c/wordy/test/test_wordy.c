@@ -21,7 +21,6 @@ void test_answer_addition(void)
 
 void test_answer_more_addition(void)
 {
-   TEST_IGNORE();               // delete this line to run test
    const char *question = "What is 53 plus 2?";
    const int expected = 55;
    int result;
