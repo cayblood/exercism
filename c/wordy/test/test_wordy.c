@@ -31,7 +31,6 @@ void test_answer_more_addition(void)
 
 void test_answer_addition_with_negative_numbers(void)
 {
-   TEST_IGNORE();
    const char *question = "What is -1 plus -10?";
    const int expected = -11;
    int result;
@@ -42,7 +41,6 @@ void test_answer_addition_with_negative_numbers(void)
 
 void test_answer_large_addition(void)
 {
-   TEST_IGNORE();
    const char *question = "What is 123 plus 45678?";
    const int expected = 45801;
    int result;
@@ -53,7 +51,6 @@ void test_answer_large_addition(void)
 
 void test_answer_subtraction(void)
 {
-   TEST_IGNORE();
    const char *question = "What is 4 minus -12?";
    const int expected = 16;
    int result;
