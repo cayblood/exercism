@@ -20,13 +20,13 @@ bool answer(const char *question, int *result)
     if (regcomp(&regex, REGEX_PATTERN, REG_EXTENDED) == 0) {
         if (regexec(&regex, question, REGEX_MAX_MATCHES, pmatch, 0) == 0) {
             char expression1[MAX_MATCH_LENGTH] = { 0 };
-            char expression2[MAX_MATCH_LENGTH] = { 0 };
+//            char expression2[MAX_MATCH_LENGTH] = { 0 };
             char operand1[MAX_MATCH_LENGTH] = { 0 };
             char operand2[MAX_MATCH_LENGTH] = { 0 };
-            char operand3[MAX_MATCH_LENGTH] = { 0 };
+//            char operand3[MAX_MATCH_LENGTH] = { 0 };
             char operator1[MAX_MATCH_LENGTH] = { 0 };
-            char operator2[MAX_MATCH_LENGTH] = { 0 };
-            intmax_t op1, op2, op3, op4;
+//            char operator2[MAX_MATCH_LENGTH] = { 0 };
+            intmax_t op1, op2; // , op3, op4;
 
             strncpy(expression1, question + pmatch[0].rm_so, pmatch[0].rm_eo - pmatch[0].rm_so);
 //            strncpy(expression2, question + pmatch[1].rm_so, pmatch[1].rm_eo - pmatch[1].rm_so);

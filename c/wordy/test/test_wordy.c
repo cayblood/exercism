@@ -61,7 +61,6 @@ void test_answer_subtraction(void)
 
 void test_answer_multiplication(void)
 {
-   TEST_IGNORE();
    const char *question = "What is -3 multiplied by 25?";
    const int expected = -75;
    int result;
@@ -72,7 +71,6 @@ void test_answer_multiplication(void)
 
 void test_answer_division(void)
 {
-   TEST_IGNORE();
    const char *question = "What is 33 divided by -3?";
    const int expected = -11;
    int result;
