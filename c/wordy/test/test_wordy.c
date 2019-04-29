@@ -81,7 +81,6 @@ void test_answer_division(void)
 
 void test_answer_multiple_additions(void)
 {
-   TEST_IGNORE();
    const char *question = "What is 1 plus 1 plus 1?";
    const int expected = 3;
    int result;
