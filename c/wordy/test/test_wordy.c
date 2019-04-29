@@ -91,7 +91,6 @@ void test_answer_multiple_additions(void)
 
 void test_answer_addition_and_subtraction(void)
 {
-   TEST_IGNORE();
    const char *question = "What is 1 plus 5 minus -2?";
    const int expected = 8;
    int result;
@@ -102,7 +101,6 @@ void test_answer_addition_and_subtraction(void)
 
 void test_answer_multiple_subtraction(void)
 {
-   TEST_IGNORE();
    const char *question = "What is 20 minus 4 minus 13?";
    const int expected = 3;
    int result;
@@ -113,7 +111,6 @@ void test_answer_multiple_subtraction(void)
 
 void test_answer_subtraction_then_addition(void)
 {
-   TEST_IGNORE();
    const char *question = "What is 17 minus 6 plus 3?";
    const int expected = 14;
    int result;
@@ -124,7 +121,6 @@ void test_answer_subtraction_then_addition(void)
 
 void test_answer_multiple_multiplication(void)
 {
-   TEST_IGNORE();
    const char *question = "What is 2 multiplied by -2 multiplied by 3?";
    const int expected = -12;
    int result;
