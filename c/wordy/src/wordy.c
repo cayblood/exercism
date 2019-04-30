@@ -17,6 +17,8 @@ bool answer(const char *question, int *result)
 {
     regex_t regex;
     regmatch_t pmatch[REGEX_MAX_MATCHES];
+    bool succeeded = false;
+
     if (regcomp(&regex, REGEX_PATTERN, REG_EXTENDED) == 0) {
         if (regexec(&regex, question, REGEX_MAX_MATCHES, pmatch, 0) == 0) {
             char expression1[MAX_MATCH_LENGTH] = { 0 };
@@ -44,42 +46,34 @@ bool answer(const char *question, int *result)
             ///////////////////////////////////////////////////////////////
             if (strcmp(operator1, "plus") == 0) {
                 *result = (int)op1 + op2;
-                if (strlen(operator2) > 0) {
-                    op3 = strtoimax(operand3, NULL, 10);
-                    if (strcmp(operator2, "plus") == 0) {
-                        *result += (int)op3;
-                    }
-                    if (strcmp(operator2, "minus") == 0) {
-                        *result -= (int)op3;
-                    }
-                }
             }
             if (strcmp(operator1, "minus") == 0) {
                 *result = (int)op1 - op2;
-                if (strlen(operator2) > 0) {
-                    op3 = strtoimax(operand3, NULL, 10);
-                    if (strcmp(operator2, "plus") == 0) {
-                        *result += (int)op3;
-                    }
-                    if (strcmp(operator2, "minus") == 0) {
-                        *result -= (int)op3;
-                    }
-                }
             }
             if (strcmp(operator1, "multiplied by") == 0) {
                 *result = (int)op1 * op2;
-                if (strlen(operator2) > 0) {
-                    op3 = strtoimax(operand3, NULL, 10);
-                    if (strcmp(operator2, "multiplied by") == 0) {
-                        *result *= (int) op3;
-                    }
-                }
             }
             if (strcmp(operator1, "divided by") == 0) {
                 *result = (int)op1 / op2;
             }
+            if (strlen(operator2) > 0) {
+                op3 = strtoimax(operand3, NULL, 10);
+                if (strcmp(operator2, "plus") == 0) {
+                    *result += (int)op3;
+                }
+                if (strcmp(operator2, "minus") == 0) {
+                    *result -= (int)op3;
+                }
+                if (strcmp(operator2, "multiplied by") == 0) {
+                    *result *= (int) op3;
+                }
+                if (strcmp(operator2, "divided by") == 0) {
+                    *result /= (int)op3;
+                }
+            }
+            succeeded = true;
         }
         regfree(&regex);
     }
-    return true;
+    return succeeded;
 }

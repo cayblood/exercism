@@ -131,7 +131,6 @@ void test_answer_multiple_multiplication(void)
 
 void test_answer_addition_and_multiplication(void)
 {
-   TEST_IGNORE();
    const char *question = "What is -3 plus 7 multiplied by -2?";
    const int expected = -8;
    int result;
@@ -142,7 +141,6 @@ void test_answer_addition_and_multiplication(void)
 
 void test_answer_multiple_division(void)
 {
-   TEST_IGNORE();
    const char *question = "What is -12 divided by 2 divided by -3?";
    const int expected = 2;
    int result;
@@ -153,7 +151,6 @@ void test_answer_multiple_division(void)
 
 void test_answer_unknown_operation(void)
 {
-   TEST_IGNORE();
    const char *question = "What is 52 cubed?";
    int result;
    bool success = answer(question, &result);
@@ -162,7 +159,6 @@ void test_answer_unknown_operation(void)
 
 void test_answer_non_math_question(void)
 {
-   TEST_IGNORE();
    const char *question = "Who is the President of the United States?";
    int result;
    bool success = answer(question, &result);
