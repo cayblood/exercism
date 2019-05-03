@@ -3,8 +3,9 @@
 //
 
 #include "raindrops.h"
+#include <stdio.h>
 
 void convert(char *result, int drops)
 {
-    
+    sprintf(result, "%d", drops);
 }
