@@ -6,8 +6,9 @@
 
 int *binary_search(int to_find, int arr[], int length)
 {
+    int index = length - 1 - (length / 2);
     if (to_find && length > 0) {
-        return &arr[0];
+        return &arr[index];
     }
     return &arr[0];
 }

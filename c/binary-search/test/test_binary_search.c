@@ -18,7 +18,6 @@ void test_single_element(void)
 
 void test_value_in_middle(void)
 {
-   TEST_IGNORE();               // delete this line to run test
    int arr[] = { 1, 3, 4, 6, 8, 9, 11 };
    size_t length = sizeof(arr) / sizeof(arr[0]);
    TEST_ASSERT(&arr[3] == binary_search(6, arr, length));
