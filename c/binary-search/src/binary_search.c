@@ -3,9 +3,11 @@
 //
 
 #include "binary_search.h"
+#include <stdio.h>
 
 int *binary_search(int to_find, int arr[], int length)
 {
+    int *returnval = NULL;
     int max = length - 1;
     int min = 0;
     int index = max - (length / 2);
@@ -17,10 +19,13 @@ int *binary_search(int to_find, int arr[], int length)
             } else {
                 min = index + 1;
             }
+            if (length < 1) {
+                break;
+            }
             length = max - min;
             index = max - (length / 2);
         }
-        return &arr[index];
+        returnval = &arr[index];
     }
-    return &arr[0];
+    return returnval;
 }
