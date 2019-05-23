@@ -21,7 +21,6 @@ void test_sum_of_multiples_of_3_and_5_up_to_1(void)
 
 void test_sum_of_multiples_of_3_and_5_up_to_4(void)
 {
-   TEST_IGNORE();               // delete this line to run test
    const unsigned int multiples[] = { 3, 5 };
    TEST_ASSERT_EQUAL(3,
                      sum_of_multiples(multiples, NUM_OF_ELEMENTS(multiples),
@@ -30,7 +29,6 @@ void test_sum_of_multiples_of_3_and_5_up_to_4(void)
 
 void test_sum_of_multiples_of_3_and_5_up_to_10(void)
 {
-   TEST_IGNORE();
    const unsigned int multiples[] = { 3, 5 };
    TEST_ASSERT_EQUAL(23,
                      sum_of_multiples(multiples, NUM_OF_ELEMENTS(multiples),
@@ -39,7 +37,6 @@ void test_sum_of_multiples_of_3_and_5_up_to_10(void)
 
 void test_sum_of_multiples_of_3_and_5_up_to_100(void)
 {
-   TEST_IGNORE();
    const unsigned int multiples[] = { 3, 5 };
    TEST_ASSERT_EQUAL(2318,
                      sum_of_multiples(multiples, NUM_OF_ELEMENTS(multiples),
