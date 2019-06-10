@@ -3,12 +3,20 @@
 complex_t c_add(complex_t a, complex_t b)
 {
     complex_t to_return;
+
+    to_return.real = a.real + b.real;
+    to_return.imag = a.imag + b.imag;
+
     return to_return;
 }
 
 complex_t c_sub(complex_t a, complex_t b)
 {
     complex_t to_return;
+
+    to_return.real = a.real - b.real;
+    to_return.imag = a.imag - b.imag;
+
     return to_return;
 }
 
@@ -25,6 +33,11 @@ complex_t c_mul(complex_t a, complex_t b)
 complex_t c_div(complex_t a, complex_t b)
 {
     complex_t to_return;
+
+    to_return.real = a.real * b.real;
+    if (a.imag == 0.0 && b.imag)
+    to_return.real = a.imag / b.imag;
+
     return to_return;
 }
 
