@@ -33,10 +33,17 @@ complex_t c_mul(complex_t a, complex_t b)
 complex_t c_div(complex_t a, complex_t b)
 {
     complex_t to_return;
+    double temp, denominator;
 
     to_return.real = a.real * b.real;
-    if (a.imag == 0.0 && b.imag)
-    to_return.real = a.imag / b.imag;
+    to_return.imag = (a.real * b.imag) + (b.imag * a.real);
+    to_return.real -= (a.imag * b.imag);
+
+    denominator = b.real * b.real;
+    denominator -= b.imag * b.imag;
+
+    to_return.real /= denominator;
+    to_return.imag /= denominator;
 
     return to_return;
 }
