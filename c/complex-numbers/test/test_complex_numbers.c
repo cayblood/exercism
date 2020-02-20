@@ -299,7 +299,6 @@ void test_imaginary_part_of_a_number_with_real_and_imaginary_part(void)
 
 void test_eulers_identity(void)
 {
-   TEST_IGNORE();
    complex_t z = {.real = 0.0,.imag = PI };
 
    complex_t expected = {.real = -1.0,.imag = 0.0 };
@@ -311,7 +310,6 @@ void test_eulers_identity(void)
 
 void test_exponential_of_zero(void)
 {
-   TEST_IGNORE();
    complex_t zero = {.real = 0.0,.imag = 0.0 };
 
    complex_t expected = {.real = 1.0,.imag = 0.0 };
@@ -322,7 +320,6 @@ void test_exponential_of_zero(void)
 
 void test_exponential_of_a_purely_real_number(void)
 {
-   TEST_IGNORE();
    complex_t z = {.real = 1.0,.imag = 0.0 };
 
    complex_t expected = {.real = E,.imag = 0.0 };
