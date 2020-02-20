@@ -43,7 +43,7 @@ complex_t c_conjugate(complex_t x)
 {
     complex_t to_return;
     to_return.real = x.real;
-    to_return.imag = x.imag * -1.0;
+    to_return.imag = -x.imag;
     return to_return;
 }
 
